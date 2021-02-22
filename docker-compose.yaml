@@ -1,0 +1,9 @@
+version: "3"
+services:
+  recipe-book:
+    build: .
+    image: "wallsofcode/recipe-book:latest"
+    volumes:
+      - "./recipebook:/recipebook"
+    ports:
+      - "80:8000"
