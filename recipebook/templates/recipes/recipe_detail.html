@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ object.name }} {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1 class="title">{{ object.name }}</h1>
+<h3 class="subtitle">
+    Created by: {{ object.creator.username }} on {{ object.created_at|date }} 
+    (last updated on {{ object.last_modified|date }})
+</h3>
+
+<br />
+<h3 class="title">Ingredients</h3>
+<ul>
+    {% for ingredient in object.ingredients %}
+        <li>{{ ingredient }}</li>
+    {% endfor %}
+</ul>
+
+<br />
+<h3 class="title">Steps</h3>
+<ul>
+    {% for step in object.steps %}
+        <li>{{ step }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

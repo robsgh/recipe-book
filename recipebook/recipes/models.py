@@ -57,7 +57,7 @@ class Recipe(models.Model):
     def ingredients(self, val):
         """ Set the ingredients in the recipe """
         import json
-        self.ingredients_json = json.dumps(val)
+        self.ingredients_json = json.dumps(val, separators=(',',':'))
 
     @property
     def steps(self):
@@ -69,7 +69,7 @@ class Recipe(models.Model):
     def steps(self, val):
         """ Set the steps in the recipe """
         import json
-        self.steps_json = json.dumps(val)
+        self.steps_json = json.dumps(val, separators=(',',':'))
 
     def __str__(self):
         """ Display the model name as a string """

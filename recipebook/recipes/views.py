@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .models import Recipe
 
 class RecipeListView(ListView):
-    template_name = 'recipes/recipe_list.html'
+    model = Recipe
+
+class RecipeDetailView(DetailView):
     model = Recipe
