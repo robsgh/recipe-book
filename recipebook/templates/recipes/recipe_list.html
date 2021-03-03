@@ -6,7 +6,7 @@
 <h1 class="title">All Recipes</h1>
 <ul>
     {% for i in object_list %}
-        <li><a href="{% url 'recipes:detail' i.pk %}">{{ i.name }}</a> - {{ i.recipe_type }} - ({{i.created_at | date}}, {{i.last_modified | date}})</li>
+        <li><a href="{% url 'recipe-detail' i.pk %}">{{ i.name }}</a> - {{ i.recipe_type }} - ({{i.created_at | date}}, {{i.last_modified | date}})</li>
     {% empty %}
         <li><b>None</b></li>
     {% endfor %}

@@ -4,7 +4,7 @@ from rest_framework import routers
 
 from . import views
 
-#app_name = 'api'
+app_name = 'api'
 
 router = routers.DefaultRouter()
 router.register(r'recipes', views.RecipeViewSet)

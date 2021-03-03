@@ -23,6 +23,9 @@ class RecipeType(models.Model):
             node = node.parent
         return '/'.join(p[::-1])
 
+    def get_recipes(self):
+        return Recipe.objects.filter(recipe_type=self)
+
 class Recipe(models.Model):
     """ A recipe entry in the recipe book """
     creator = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
@@ -44,7 +47,7 @@ class Recipe(models.Model):
 
     class Meta:
         """ Recipe Metadata """
-        ordering = ['-name', '-last_modified']
+        ordering = ['name', '-last_modified']
         get_latest_by = ['-last_modified', '-created_at']
 
     @property

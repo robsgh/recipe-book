@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ object.name }} Recipies {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1 class="title">{{ object.name }}</h1>
+<h3 class="subtitle">
+    {{ recipes.count }} found recipes for {{ object.name }}
+</h3>
+
+<br />
+<ul>
+    {% for recipe in recipes %}
+        <li><a href="{% url 'recipe-detail' recipe.pk %}">{{ recipe.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
